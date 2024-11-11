@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="../Css/style.css" />
+    </head>
+    <body>
+        <nav>
+            <div class="logo-nav-box">
+                <img
+                    class="mini-logo"
+                    src="../media/image/Fitime-logo.jpg"
+                    alt="fitime logo"
+                />
+                <h1>Fitime</h1>
+            </div>
+        </nav>
+        <button class="btn close-btn">X</button>
+        <div class="container">
+            <div class="box-white border-0">
+                <h1>Menu</h1>
+                <div class="box-white">
+                    <button class="btn list_btn">Lista de clientes</button>
+                    <button class="btn cad_btn">Cadastrar cliente</button>
+                </div>
+            </div>
+        </div>
+        <script>
+            //Rediriocionando botões
+            const cad_btn = document.querySelector('.cad_btn')
+            const list_btn = document.querySelector('.list_btn')
+            const close_btn = document.querySelector('.close-btn')
+
+            close_btn.onclick = () => {
+                window.location.href = '../index.html'
+            }
+
+            cad_btn.onclick = () => {
+                window.location.href = './createUser.html'
+            }
+
+            list_btn.onclick = () => {
+                window.location.href = './listUser.html'
+            }
+        </script>
+    </body>
+</html>

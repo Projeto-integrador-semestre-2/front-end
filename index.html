@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Fitime</title>
+        <link rel="stylesheet" href="./Css/style.css" />
+    </head>
+    <body>
+        <nav>
+            <div class="logo-nav-box">
+                <img
+                    class="mini-logo"
+                    src="./media/image/Fitime-logo.jpg"
+                    alt="fitime logo"
+                />
+                <h1>Fitime</h1>
+            </div>
+        </nav>
+        <div class="center-form">
+            <h1>Login</h1>
+            <label>
+                CPF:
+                <input type="text" name="username" />
+            </label>
+            <label>
+                Senha:
+                <input type="text" name="password" />
+            </label>
+            <button class="send-button">Entrar</button>
+            <button class="cad-button btn">Cadastrar</button>
+        </div>
+    </body>
+    <script>
+        //selecionando botões e inputs - DOM
+        const sendBtn = document.querySelector('.send-button')
+        const inputName = document.querySelector('input[name="username"]')
+        const inputPassword = document.querySelector('input[name="password"]')
+        const cadBtn = document.querySelector('.cad-button')
+
+        //redirecionar para o cadastro
+        cadBtn.onclick = async () => {
+            window.location.href = './html/createUserWithoutLogin.html'
+        }
+
+        //Requisição para a api verificar login
+        sendBtn.onclick = async () => {
+            try {
+                const response = await fetch(
+                    'http://localhost:3000/user/login',
+                    {
+                        headers: { 'Content-Type': 'application/json' },
+                        method: 'POST',
+                        body: JSON.stringify({
+                            cpf: inputName.value,
+                            password: inputPassword.value,
+                        }),
+                    }
+                )
+                const data = await response.json()
+                if (data.message) return alert('Erro: ' + data.message)
+                if (data) window.location.href = './html/menu.html'
+                else alert('Login invalido')
+            } catch (e) {
+                alert('Erro:' + e)
+            }
+        }
+    </script>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="../Css/style.css" />
+    </head>
+    <body>
+        <script src="../Js/createUser.js" defer></script>
+        <script src="../Js/main.js" defer></script>
+        <nav>
+            <div class="logo-nav-box">
+                <img
+                    class="mini-logo"
+                    src="../media/image/Fitime-logo.jpg"
+                    alt="fitime logo"
+                />
+                <h1>Fitime</h1>
+            </div>
+        </nav>
+        <button class="btn close-btn">X</button>
+
+        <div class="center-form create-user">
+            <h1>Criar Usuário</h1>
+            <label>
+                CPF:
+                <input type="text" name="cpf" maxlength="11" />
+            </label>
+            <label>
+                Name:
+                <input type="text" name="name" />
+            </label>
+            <label>
+                Senha:
+                <input type="text" name="password" />
+            </label>
+            <label>
+                Data nascimento:
+                <input type="date" name="dataNasc" />
+            </label>
+            <label>
+                Cargo:
+                <select name="cargo">
+                    <option value="Colaborador">Colaborador</option>
+                    <option value="Cliente">Cliente</option>
+                </select>
+            </label>
+            <label>
+                Celular:
+                <input type="text" name="celular" maxlength="11" />
+            </label>
+            <label>
+                Peso:
+                <input type="number" name="peso" />
+            </label>
+            <button class="create-btn">Criar</button>
+        </div>
+    </body>
+</html>

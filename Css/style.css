@@ -1,0 +1,80 @@
+@import './colors.css';
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--principal-gray);
+}
+.mini-logo {
+    width: 120px;
+}
+.logo-nav-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: var(--principal-yellow);
+    gap: 20px;
+}
+.center-form {
+    display: flex;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 10vh;
+    padding: 20px;
+    align-items: center !important;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid var(--principal-yellow);
+    color: white;
+}
+
+.create-user {
+    margin-top: 3vh;
+}
+
+.center-form label {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.send-button,
+.create-btn,
+.btn {
+    padding: 10px 30px;
+    border: 1px solid var(--principal-yellow);
+    background-color: var(--secondary-gray);
+    color: white;
+    border-radius: 5px;
+}
+
+.send-button:hover,
+.create-btn:hover,
+.btn:hover {
+    cursor: pointer;
+    background-color: var(--principal-gray);
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.box-white {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 100px;
+    border-radius: 5px;
+    border: 1px solid var(--principal-yellow);
+    color: white !important;
+}
+
+.border-0 {
+    border: 0px;
+}
