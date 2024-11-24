@@ -24,6 +24,7 @@
                 <div class="box-white">
                     <button class="btn list_btn">Lista de clientes</button>
                     <button class="btn cad_btn">Cadastrar cliente</button>
+                    <button class="btn check_btn">Check</button>
                 </div>
             </div>
         </div>
@@ -32,6 +33,25 @@
             const cad_btn = document.querySelector('.cad_btn')
             const list_btn = document.querySelector('.list_btn')
             const close_btn = document.querySelector('.close-btn')
+            const check_btn = document.querySelector('.check_btn')
+            const cpfUser = localStorage.getItem('cpfUser')
+
+            check_btn.onclick = async () => {
+                const response = await fetch(
+                    'http://localhost:3000/check/check',
+                    {
+                        headers: { 'Content-Type': 'application/json' },
+                        method: 'POST',
+                        body: JSON.stringify({
+                            cpf: cpfUser,
+                        }),
+                    }
+                )
+                const data = await response.json()
+                if (data.message)
+                    alert('Parece que algo deu errado\nErro: ' + data.message)
+                else alert('Check realizado com sucesso!!!')
+            }
 
             close_btn.onclick = () => {
                 window.location.href = '../index.html'

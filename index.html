@@ -57,10 +57,12 @@
                         }),
                     }
                 )
+                localStorage.setItem('cpfUser', inputName.value)
                 const data = await response.json()
                 if (data.message) return alert('Erro: ' + data.message)
-                if (data) window.location.href = './html/menu.html'
-                else alert('Login invalido')
+                if (data) {
+                    window.location.href = './html/menu.html'
+                } else alert('Login invalido')
             } catch (e) {
                 alert('Erro:' + e)
             }
