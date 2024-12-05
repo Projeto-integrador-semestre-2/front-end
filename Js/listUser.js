@@ -21,6 +21,7 @@ async function searchAllUsers() {
                         <p>CPF: ${data[0][i].CPF}</p>
                         <hr />
                         <div class="buttons">
+                        Detalhado
                             <button class="btn" onclick="relatorioSemanal(${
                                 data[0][i].CPF
                             })">Relatório Semanal</button>
@@ -28,10 +29,8 @@ async function searchAllUsers() {
                                 data[0][i].CPF
                             })">Relatório Geral</button>
                             <div>
-                                <button class="btn btn-warning">Editar</button>
-                                <button class="btn btn-danger">
-                                    Apagar
-                                </button>
+                                
+                               
                             </div>
                         </div>
                     </div>`
@@ -125,6 +124,7 @@ searchBtn.onclick = async () => {
                         <p>CPF: ${users[i].CPF}</p>
                         <hr />
                         <div class="buttons">
+                            Detalhado
                             <button class="btn" onclick="relatorioSemanal(${
                                 users[i].CPF
                             })">Relatório Semanal</button>
@@ -132,10 +132,6 @@ searchBtn.onclick = async () => {
                                 users[i].CPF
                             })">Relatório Geral</button>
                             <div>
-                                <button class="btn btn-warning">Editar</button>
-                                <button class="btn btn-danger">
-                                    Apagar
-                                </button>
                             </div>
                         </div>
                     </div>`
