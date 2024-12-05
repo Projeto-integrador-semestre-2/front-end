@@ -24,7 +24,9 @@ async function searchAllUsers() {
                             <button class="btn" onclick="relatorioSemanal(${
                                 data[0][i].CPF
                             })">Relatório Semanal</button>
-                            <button class="btn">Relatório Geral</button>
+                            <button class="btn" onclick="relatorioGeral(${
+                                data[0][i].CPF
+                            })">Relatório Geral</button>
                             <div>
                                 <button class="btn btn-warning">Editar</button>
                                 <button class="btn btn-danger">
@@ -64,7 +66,36 @@ async function relatorioSemanal(cpf) {
         if (data.hours >= 11 && data.hours <= 20) classificação = 'Avançado'
         if (data.hours >= 20) classificação = 'Extremamente avançado'
         alert(
-            `Quantidade de horas nesta semana: ${data.hours}:${data.minutes}:${data.seconds}\nClassificado como: ${classificação}`
+            `Quantidade de horas nesta semana: ${data.hours || '00'}:${
+                data.minutes || '00'
+            }:${data.seconds || '00'}\nClassificado como: ${classificação}`
+        )
+    }
+}
+
+async function relatorioGeral(cpf) {
+    const response = await fetch(
+        'http://localhost:3000/check/relatorio_geral',
+        {
+            headers: { 'Content-Type': 'application/json' },
+            method: 'POST',
+            body: JSON.stringify({
+                cpf: cpf,
+            }),
+        }
+    )
+    const data = await response.json()
+    if (data.messsage) {
+        alert('Erro: ' + data.messsage)
+    } else {
+        let classificação = 'Iniciante'
+        if (data.hours >= 6 && data.hours <= 10) classificação = 'Intermediário'
+        if (data.hours >= 11 && data.hours <= 20) classificação = 'Avançado'
+        if (data.hours >= 20) classificação = 'Extremamente avançado'
+        alert(
+            `Quantidade de horas nesta semana: ${data.hours || '00'}:${
+                data.minutes || '00'
+            }:${data.seconds || '00'}\nClassificado como: ${classificação}`
         )
     }
 }
@@ -97,7 +128,9 @@ searchBtn.onclick = async () => {
                             <button class="btn" onclick="relatorioSemanal(${
                                 users[i].CPF
                             })">Relatório Semanal</button>
-                            <button class="btn">Relatório Geral</button>
+                            <button class="btn" onclick="relatorioGeral(${
+                                users[i].CPF
+                            })">Relatório Geral</button>
                             <div>
                                 <button class="btn btn-warning">Editar</button>
                                 <button class="btn btn-danger">

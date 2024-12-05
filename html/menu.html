@@ -21,14 +21,21 @@
         <div class="container">
             <div class="box-white border-0">
                 <h1>Menu</h1>
-                <div class="box-white">
-                    <button class="btn list_btn">Lista de clientes</button>
-                    <button class="btn cad_btn">Cadastrar cliente</button>
-                    <button class="btn check_btn">Check</button>
-                </div>
+                <div class="box-white targ"></div>
             </div>
         </div>
         <script>
+            if (localStorage.getItem('role') == 'Colaborador') {
+                document.querySelector(
+                    '.targ'
+                ).innerHTML = `<button class="btn list_btn">Lista de clientes</button>
+                    <button class="btn cad_btn">Cadastrar cliente</button>
+                    <button class="btn check_btn">Check</button>`
+            } else {
+                document.querySelector('.targ').innerHTML = `
+                    <button class="btn check_btn">Check</button>`
+            }
+
             //Rediriocionando botões
             const cad_btn = document.querySelector('.cad_btn')
             const list_btn = document.querySelector('.list_btn')
