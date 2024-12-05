@@ -28,7 +28,7 @@
             if (localStorage.getItem('role') == 'Colaborador') {
                 document.querySelector(
                     '.targ'
-                ).innerHTML = `<button class="btn list_btn">Lista de clientes</button>
+                ).innerHTML = `<button class="btn list_btn">Relatório de clientes</button>
                     <button class="btn cad_btn">Cadastrar cliente</button>
                     <button class="btn check_btn">Check</button>`
             } else {
@@ -44,6 +44,10 @@
             const cpfUser = localStorage.getItem('cpfUser')
 
             check_btn.onclick = async () => {
+                let continuar = confirm(
+                    `Tem certeza de que deseja realizar o check do usuário referente ao cpf: ${cpfUser}`
+                )
+                if (!continuar) return alert('Check cancelado!')
                 const response = await fetch(
                     'http://localhost:3000/check/check',
                     {
